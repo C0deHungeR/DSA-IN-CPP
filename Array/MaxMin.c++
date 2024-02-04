@@ -2,24 +2,40 @@
 using namespace std ;
 
 int getMax(int arr[],int num){   // function to get maximun element 
-    int max = INT8_MIN ;
-    for(int i = 0 ; i < 10 ; i++){
-        if(arr[i] > max){
-            max = arr[i];
+    int maxi = INT8_MIN ;
+    for(int i = 0 ; i < num ; i++){
+        if(arr[i] > maxi){
+            maxi = arr[i];
         }
     }
-    return max ;
+
+    // can also be found by using this function
+
+   /* for(int i = 0 ; i < num ; i++){
+
+        maxi = max(maxi ,arr[i]) ;
+
+    } */
+    return maxi ;
 }
 
 int getMin(int arr[],int num){  // function to get minimum element 
-    int min = INT16_MAX ;
+    int mini = INT16_MAX ;
 
     for(int i = 0 ; i < 10 ; i++){
-        if(arr[i] < min){
-            min = arr[i];
+        if(arr[i] < mini){
+            mini = arr[i];
         }
     }
-    return min;
+
+     // can also be found by using this function
+
+   /* for(int i = 0 ; i < num ; i++){
+
+        mini = min(mini ,arr[i]) ;
+
+    } */
+    return mini;
 }
 
 int main (){
