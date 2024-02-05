@@ -15,5 +15,5 @@ int main(){
 
     int arr[5]={1,2,3,2,1};
 
-    findUnique(arr,5) ;         // calling function
+    cout<<findUnique(arr,5) ;         // calling function
 }
