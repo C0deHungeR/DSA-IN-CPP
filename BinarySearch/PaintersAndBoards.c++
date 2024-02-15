@@ -1,5 +1,6 @@
 #include <bits/stdc++.h> 
 using namespace std ;
+
 bool ispossible(vector<int>& board, int N, int A, int B, long long mid) {
     long long time = 0;
     int paintercount = 1;
