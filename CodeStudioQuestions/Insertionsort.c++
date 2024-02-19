@@ -1,6 +1,4 @@
-#include <iostream>
-using namespace std ;
-#include<vector>
+#include <bits/stdc++.h> 
 void insertionSort(int n, vector<int> &arr){
     
     for(int i = 1 ; i < n ; i++){
@@ -20,12 +18,4 @@ void insertionSort(int n, vector<int> &arr){
         arr[j+1] = temp ;
         
     }
-}
-int main(){
-    vector <int> arr ={1,3,4,0,88,23,43,56,0,18} ;
-    insertionSort(10,arr); 
-    for(int i = 0 ; i < 10 ; i ++){
-        cout<<arr[i]<<" ";
-    }
-    
 }
