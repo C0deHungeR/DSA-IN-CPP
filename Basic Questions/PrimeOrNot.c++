@@ -6,6 +6,9 @@ int main(){
     cin>>number ; // input of a number 
 
     bool isprime = 1 ;
+    if(number <= 1){
+        return false ;
+    }
 
     for(int i = 2 ; i < number ; i++){
 
