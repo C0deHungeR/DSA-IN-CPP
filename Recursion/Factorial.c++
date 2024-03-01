@@ -13,8 +13,3 @@ int main(){
     cout<<fact(n);
 
 }
-
-
-    
-
-    
