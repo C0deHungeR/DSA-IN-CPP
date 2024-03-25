@@ -65,34 +65,42 @@ void insertAtPosition(Node*&head ,Node*&tail , int d,int position){
     temp->next = newnode ;
     newnode->prev = temp ;
 }
-void deletenode(Node*&head ,Node*&tail,int position){
-    
-    if(position == 1){
-        Node*temp = head; 
-        temp->next->prev = nullptr ;
-        head = temp->next ;
-        temp->next = nullptr ;
-        delete temp ;
-        return ;
-    }
-    Node*current = head ;
-    Node*pre = NULL ;
+void deleteNode(Node*& head, Node*& tail, int position) {
+    if (head == nullptr)
+        return; // Empty list, nothing to delete
 
-    int count = 1 ;
-    while(count < position){
-       pre = current ;
-       current = current->next ; 
-       count++;
-    }  
-   if (current == tail) {
-        tail = pre;
+    Node* current = head;
+    if (position == 1) {
+        head = current->next;
+        if (head != nullptr)
+            head->prev = nullptr;
+        else
+            tail = nullptr; // Update tail if the list becomes empty
+        delete current;
+        return;
     }
-    current -> prev = nullptr ;
-    pre->next = current->next ;
-    current->next = nullptr ;
-    delete current ; 
-        
+
+    int count = 1;
+    while (current != nullptr && count < position) {
+        current = current->next;
+        count++;
+    }
+
+    if (current == nullptr)
+        return; // Position exceeds the length of the list
+
+    if (current == tail) {
+        tail = current->prev;
+        tail->next = nullptr;
+        delete current;
+        return;
+    }
+
+    current->prev->next = current->next;
+    current->next->prev = current->prev;
+    delete current;
 }
+
 int main(){
     Node*node1 = new Node(1);
     Node*head = node1 ;
@@ -104,7 +112,7 @@ int main(){
     print(head);
     insertAtPosition(head,tail,30,3);
     print(head);
-    deletenode(head,tail , 4);
+    deleteNode(head,tail , 4);
     print(head);
     cout<<head->data<<endl;
     cout<<tail->data<<endl;
