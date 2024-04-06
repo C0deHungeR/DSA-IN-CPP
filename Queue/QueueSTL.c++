@@ -20,6 +20,6 @@ int main(){
     }
     else{
         cout<<"q is not empty "<<endl;
-    }
+    } 
     return 0 ;
 }
