@@ -53,6 +53,21 @@ bool search(TrieNode*root , string key){
     return search(root,key.substr(1));
 }
 
+void deleteWord(TrieNode*root,string key){
+     if(key.size() == 0 && root->isterminal == true){
+        root->isterminal = false ;
+        return ;
+    }
+    int index = key[0] - 'a';
+    if(root->children[index] != nullptr){
+        root = root->children[index];
+    }else{
+        cout<<"Word Not Found"<<endl;
+        return ;
+    }
+    deleteWord(root,key.substr(1));
+}
+
 int main(){
     TrieNode*root = new TrieNode('-');
     insert(root,"nachiket");
@@ -63,9 +78,9 @@ int main(){
     cout<<search(root,"nach")<<endl;
     cout<<search(root,"nac")<<endl;
     cout<<search(root,"nh")<<endl;
-
-
-
+    deleteWord(root,"nach");
+    cout<<search(root,"nach")<<endl;
+    deleteWord(root,"yoyo");
 
     return 0;
 }
